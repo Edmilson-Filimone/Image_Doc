@@ -20,7 +20,7 @@ def inserir(nome, titulo, data, ficheiro, imagem_1, imagem_2):
 
     global conexao
     try:
-        conexao = sqlite3.connect('./utils/BASE.db')
+        conexao = sqlite3.connect('./utilis/BASE.db')
         cursor = conexao.cursor()
         create = "CREATE TABLE IF NOT EXISTS One " \
                  "(nome text,titulo text," \
@@ -43,7 +43,7 @@ def selet_box():
 
     global conexao
     try:
-        conexao = sqlite3.connect('BASE.db')
+        conexao = sqlite3.connect('./utilis/BASE.db')
         cursor = conexao.cursor()
         select = "SELECT * FROM One"
         cursor.execute(select)
@@ -68,7 +68,7 @@ def selet_box():
 def query(nome, titulo, data):
     try:
         global documento, conexao
-        conexao = sqlite3.connect('BASE.db')
+        conexao = sqlite3.connect('./utilis/BASE.db')
         cursor = conexao.cursor()
         select = "SELECT ficheiro FROM One WHERE nome == (?) AND titulo == (?) AND data = (?)"
         cursor.execute(select, (nome, titulo, data))
@@ -93,7 +93,7 @@ def query(nome, titulo, data):
 def non_query(nome, titulo, data):
     try:
         global conexao
-        conexao = sqlite3.connect('BASE.db')
+        conexao = sqlite3.connect('./utilis/BASE.db')
         cursor = conexao.cursor()
         select = "SELECT * FROM One WHERE nome == (?) AND titulo == (?) AND data = (?)"
         cursor.execute(select, (nome, titulo, data))
@@ -112,7 +112,7 @@ def non_query(nome, titulo, data):
 def query_2(nome, titulo, data):
     global img_1, conexao
     try:
-        conexao = sqlite3.connect('BASE.db')
+        conexao = sqlite3.connect('./utilis/BASE.db')
         cursor = conexao.cursor()
         select = "SELECT imagem_1 FROM One WHERE nome == (?) AND titulo == (?) AND data = (?)"
         cursor.execute(select, (nome, titulo, data))
@@ -137,7 +137,7 @@ def query_2(nome, titulo, data):
 def query_3(nome, titulo, data):
     global img_2, conexao
     try:
-        conexao = sqlite3.connect('BASE.db')
+        conexao = sqlite3.connect('./utilis/BASE.db')
         cursor = conexao.cursor()
         select = "SELECT imagem_2 FROM One WHERE nome == (?) AND titulo == (?) AND data = (?)"
         cursor.execute(select, (nome, titulo, data))
