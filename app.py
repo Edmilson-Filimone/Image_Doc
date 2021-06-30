@@ -20,7 +20,7 @@ def inserir(nome, titulo, data, ficheiro, imagem_1, imagem_2):
 
     global conexao
     try:
-        conexao = sqlite3.connect('BASE.db')
+        conexao = sqlite3.connect('./utils/BASE.db')
         cursor = conexao.cursor()
         create = "CREATE TABLE IF NOT EXISTS One " \
                  "(nome text,titulo text," \
